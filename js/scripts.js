@@ -6,22 +6,23 @@ $(document).ready(function() {
     if (!number) {
       alert("You must enter a valid number.");
       location.reload();
-    }else {
-      alert("you enter: " + number);
-     }
+    }
 
 
     //Business logic:
-    var i, countnumbers, count, pingpong;
-    var result= "";
-    // countnumbers = function() {
+    var i, index, countnumbers, count, pingpong, result= [];
+
+    //countnumbers = function() {
        for (i=1;i <= number;i++) {
-          result += i + "<br>";
+         result+=i +"<br>";
+            if (result[i] === 3)
+            return result[i] = "Ping";
        }
     document.getElementById('output').innerHTML += result;
-
+    //var res = str.replace(/i/3===0/g, "Ping");
      //}
-    // countnumbers();
+    //countnumbers();
 
   })
 });
+//a.forEach(function(item, i) { if (item == 3452) a[i] = 1010; });
