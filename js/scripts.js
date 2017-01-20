@@ -9,18 +9,19 @@ $(document).ready(function() {
     }else {
       alert("you enter: " + number);
      }
-    $("#output").text(result);
+
+
+    //Business logic:
+    var i, countnumbers, count, pingpong;
+    var result= "";
+    // countnumbers = function() {
+       for (i=1;i <= number;i++) {
+          result += i + "<br>";
+       }
+    document.getElementById('output').innerHTML += result;
+
+     //}
+    // countnumbers();
+
   })
-  //Business logic:
-  var countnumbers, count, pingpong, result;
-  //it does output result if i give result a value right here ex result=5, why is function not working?
-  countnumbers= function(number) {
-    for (var i = 1; i < number; i++) {
-      result= i + 2;
-    }
-    alert(result);
-  }
-
-
-
 });
