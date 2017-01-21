@@ -8,15 +8,12 @@ $(document).ready(function() {
       location.reload();
     }
 
-
     //Business logic:
-    var i, count="", ping, array= [];
-
+    var i, array= [], pingpong, format;
     for (i=1;i <= number;i++) {
-      count += i + "<br>";
       array.push(i);
     }
-    //function to say "ping" for every number divisible by 3
+
     pingpong= function() {
       array.forEach(function(item,i) {
         if (item%3===0 && item%5===0) {
@@ -29,14 +26,11 @@ $(document).ready(function() {
       })
     }
 
-    pingpong();
-    document.getElementById('output').innerHTML= array;
+    format= function() {
+      document.getElementById('output').innerHTML= array.toString().replace(/,/g, '<br>');
+    }
 
-    //document.getElementById('output').innerHTML= count;
-
-
-    //var res = str.replace(/i/3===0/g, "Ping");
-
+    format(pingpong());
 
   })
 });
