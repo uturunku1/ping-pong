@@ -10,19 +10,33 @@ $(document).ready(function() {
 
 
     //Business logic:
-    var i, index, countnumbers, count, pingpong, result= [];
+    var i, count="", ping, array= [];
 
-    //countnumbers = function() {
-       for (i=1;i <= number;i++) {
-         result+=i +"<br>";
-            if (result[i] === 3)
-            return result[i] = "Ping";
-       }
-    document.getElementById('output').innerHTML += result;
+    for (i=1;i <= number;i++) {
+      count += i + "<br>";
+      array.push(i);
+    }
+    //function to say "ping" for every number divisible by 3
+    pingpong= function() {
+      array.forEach(function(item,i) {
+        if (item%3===0 && item%5===0) {
+          array[i]="Ping-pong";
+        }else if (item%3===0) {
+          array[i]="Ping";
+        }else if (item%5===0) {
+          array[i]= "Pong";
+        }
+      })
+    }
+
+    pingpong();
+    document.getElementById('output').innerHTML= array;
+
+    //document.getElementById('output').innerHTML= count;
+
+
     //var res = str.replace(/i/3===0/g, "Ping");
-     //}
-    //countnumbers();
+
 
   })
 });
-//a.forEach(function(item, i) { if (item == 3452) a[i] = 1010; });
