@@ -9,28 +9,25 @@ $(document).ready(function() {
     }
 
     //Business logic:
-    var i, array= [], pingpong, format;
-    for (i=1;i <= number;i++) {
+    var i, array= [], count="<ul>";
+    for (i=0;i <= number;i++) {
       array.push(i);
     }
 
-    pingpong= function() {
-      array.forEach(function(item,i) {
-        if (item%3===0 && item%5===0) {
-          array[i]="Ping-pong";
-        }else if (item%3===0) {
-          array[i]="Ping";
-        }else if (item%5===0) {
-          array[i]= "Pong";
-        }
-      })
-    }
+    array.forEach(function(item,index) {
+      if (item%3===0 && item%5===0) {
+        array[index]="Ping-pong";
+      }else if (item%3===0) {
+        array[index]="Ping";
+      }else if (item%5===0) {
+        array[index]= "Pong";
+      }
+      count+= "<li>"+ array[item]+ "</li>";
 
-    format= function() {
-      document.getElementById('output').innerHTML= array.toString().replace(/,/g, '<br>');
-    }
+    })
 
-    format(pingpong());
+    count+= "</ul>";
+    document.getElementById('output').innerHTML= count;
 
   })
 });

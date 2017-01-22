@@ -6,8 +6,8 @@ This is a webpage application built using HTML, CSS, Bootstrap, JavaScript, and 
 
 ## Setup/Installation Requirements
 
-1. Clone this repository using "git clone"
-2. Open index.html in any browser
+1. Clone this repository using "git clone".
+2. Open index.html in any browser.
 
 _Does not require a server or setting up a database._
 
