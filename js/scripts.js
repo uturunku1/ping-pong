@@ -1,33 +1,34 @@
+//Business logic:
+function countPingPong(inputNumber) {
+  var arrayPingPong=[], count="<ul>";
+
+  for (var i=1;i <=inputNumber;i++) {
+    arrayPingPong.push(i);
+  }
+  arrayPingPong.forEach(function(item,index) {
+    if (item%3===0 && item%5===0) {
+      arrayPingPong[index]="Ping-pong";
+    }else if (item%3===0) {
+      arrayPingPong[index]="Ping";
+    }else if (item%5===0) {
+      arrayPingPong[index]= "Pong";
+    }
+    count+= "<li>"+ arrayPingPong[index]+ "</li>";
+  })
+  return count+= "</ul>";
+};
+
+
+// User interface Logic:
 $(document).ready(function() {
-  // User interface Logic:
   $("form#input").submit(function(event) {
     event.preventDefault();
-    var number = parseInt($("input#number").val());
-    if (!number) {
+    var inputNumber = parseInt($("input#number").val());
+    if (!inputNumber) {
       alert("You must enter a valid number.");
       location.reload();
     }
-
-    //Business logic:
-    var i, array= [], count="<ul>";
-    for (i=0;i <= number;i++) {
-      array.push(i);
-    }
-
-    array.forEach(function(item,index) {
-      if (item%3===0 && item%5===0) {
-        array[index]="Ping-pong";
-      }else if (item%3===0) {
-        array[index]="Ping";
-      }else if (item%5===0) {
-        array[index]= "Pong";
-      }
-      count+= "<li>"+ array[item]+ "</li>";
-
-    })
-
-    count+= "</ul>";
-    document.getElementById('output').innerHTML= count;
-
+    var outputNumbers= countPingPong(inputNumber);
+    document.getElementById('output').innerHTML= outputNumbers;
   })
 });
